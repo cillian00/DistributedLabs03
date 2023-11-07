@@ -68,6 +68,13 @@ export class AuthAppStack extends cdk.Stack {
         'signup.ts'
     );
 
+    this.addAuthRoute(
+        "confirm_signup",
+        "POST",
+        "ConfirmFn",
+        "confirm-signup.ts"
+    );
+
 
     const fn = new node.NodejsFunction(this, fnName, {
       ...commonFnProps,
