@@ -61,6 +61,14 @@ export class AuthAppStack extends cdk.Stack {
 
     const resource = this.auth.addResource(resourceName);
 
+    this.addAuthRoute(
+        "signup",
+        "POST",
+        "SignupFn",
+        'signup.ts'
+    );
+
+
     const fn = new node.NodejsFunction(this, fnName, {
       ...commonFnProps,
       entry: `${__dirname}/../lambda/auth-/${fnEntry}`,
